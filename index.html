@@ -11,6 +11,7 @@
     <!-- Header -->
     <header>
         <nav>
+            <img src="imgs/logo.jpg" alt="Agafay Quad Riding Logo" class="header-logo">
             <ul class="nav-links">
                 <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
                 <li><a href="#gallery"><i class="fas fa-images"></i> Gallery</a></li>
@@ -72,25 +73,56 @@
             </div>
         </section>
 
-        <!-- À Propos de Nous Section -->
+        <!-- About Section -->
         <section id="about" class="about">
-            <h2>À Propos de Nous</h2>
-            <p>Discover the unique experience of quad riding in Agafay. Our mission is to provide safe and memorable adventures for everyone. (English and French Text)</p>
-            <img src="about-image.jpg" alt="Quad riders enjoying the desert">
+            <h2>About Us</h2>
+            <p>
+                At Agafay Quad Riding, we bring you an unforgettable desert adventure. Our story begins with a passion for
+                exploration and a deep love for the Agafay Desert's breathtaking beauty. Every ride we offer is tailored to provide
+                a unique and safe experience, combining thrills with the serenity of nature. Join us to create memories that last a lifetime.
+            </p>
         </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="gallery">
+            <h2>Gallery</h2>
+            <div class="gallery-grid">
+                <img src="imgs/10.jpg" alt="Gallery Image 1">
+                <img src="imgs/11.jpg" alt="Gallery Image 2">
+                <img src="imgs/13.jpg" alt="Gallery Image 3">
+                <img src="imgs/12.jpg" alt="Gallery Image 4">
+                <img src="imgs/14.jpg" alt="Gallery Image 5">
+                <img src="imgs/8.jpg" alt="Gallery Image 6">
+                <img src="imgs/6.jpg" alt="Gallery Image 7">
+                <img src="imgs/5.jpg" alt="Gallery Image 8">
+                <img src="imgs/18.jpg" alt="Gallery Image 9">
+            </div>
+        </section>
+
+        <!-- Popup for Images -->
+        <div id="popup" class="popup" style="display: none;">
+            <img id="popup-img" src="" alt="Popup Image">
+            <button class="close-btn" onclick="closePopup()">Close</button>
+            <div class="zoom-controls">
+                <button id="zoom-in">+</button>
+                <button id="zoom-out">-</button>
+            </div>
+        </div>
 
         <!-- Google Maps -->
         <section id="location" class="location">
             <h2>Our Location</h2>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3407.7997797837097!2d-8.151319824505826!3d31.336902156183886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdb01f172e173747%3A0x64c0e35561ec6f90!2sAGAFAY%20QUAD%20RIDING!5e0!3m2!1sen!2sma!4v1736633538211!5m2!1sen!2sma" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            <button onclick="window.open('https://maps.google.com?q=Agafay+Quad+Riding', '_blank')">Get Directions</button>
+            <div class="location-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3407.7997797837097!2d-8.151319824505826!3d31.336902156183886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdb01f172e173747%3A0x64c0e35561ec6f90!2sAGAFAY%20QUAD%20RIDING!5e0!3m2!1sen!2sma!4v1736633538211!5m2!1sen!2sma"></iframe>
+                <button onclick="window.open('https://maps.google.com?q=Agafay+Quad+Riding', '_blank')">Get Directions</button>
+            </div>
         </section>
     </main>
 
     <!-- Footer -->
     <footer>
         <div class="footer-left">
-            <img src="logo.png" alt="Agafay Quad Riding Logo">
+            <img src="imgs/logo.jpg" alt="Agafay Quad Riding Logo">
             <p>Your Desert Adventure Awaits!</p>
         </div>
         <div class="footer-center">
@@ -99,9 +131,8 @@
             <p>Email: info@agafayquadriding.com</p>
         </div>
         <div class="footer-right">
-            <a href="#faqs">FAQs</a>
-            <a href="#terms">Terms & Conditions</a>
-            <a href="#privacy">Privacy Policy</a>
+            <a href="#faqs">About Us</a>
+            <a href="#terms">Get In Touch</a>
         </div>
     </footer>
 
