@@ -1,13 +1,13 @@
-* {
-    margin: 0;
-    padding: 0;
-  }
-
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            width: 100%;
+            overflow-x: hidden;
         }
 
         header {
@@ -58,6 +58,7 @@
             width: 100%;
             height: 100vh;
             overflow: hidden;
+            cursor: pointer;
         }
 
         .slide {
@@ -82,11 +83,15 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.7); /* Keeps the semi-transparent background */
             color: #fff;
-            padding: 1em 2em;
+            padding: 2em 3em; /* Increased padding for a more prominent background */
             text-align: center;
-            border-radius: 5px;
+            border-radius: 10px; /* Optional: Rounded corners */
+            font-size: 2em; /* Larger font size for emphasis */
+            letter-spacing: 1px; /* Optional: Improve text spacing */
+            line-height: 1.5; /* Adjust line height for readability */
+            max-width: 90%; /* Prevent it from being too wide */
         }
         .slideshow-buttons {
             position: absolute;
@@ -95,6 +100,8 @@
             display: flex;
             justify-content: space-between;
             transform: translateY(-50%);
+            padding: 0 2em; /* Adds space between buttons and page edges */
+            box-sizing: border-box; /* Ensures padding doesn't affect positioning */
         }
 
         .slideshow-button {
@@ -106,6 +113,7 @@
             font-size: 1.2em;
             border-radius: 5px;
             transition: background-color 0.3s;
+            margin: 0; /* Prevents unintended spacing */
         }
 
         .slideshow-button:hover {
@@ -169,25 +177,18 @@
         }
 
         .gallery {
-            padding: 5em 2em;
+            padding: 0 2em 2em 2em;
             background-color: #f9f9f9;
             text-align: center;
         }
 
-        .gallery h2 {
-            font-size: 3em;
-            margin-bottom: 1em;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #333;
-        }
-
+                /* Gallery Grid for images */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 10px;
+            margin-bottom: 2em; /* Space between images and videos */
         }
-
         .gallery-grid img {
             width: 100%;
             height: 200px;
@@ -202,6 +203,39 @@
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
+        /* Gallery Videos */
+        .gallery-videos {
+            display: flex;
+            gap: 2em; /* Space between the videos */
+            justify-content: center; /* Center the videos horizontally */
+            margin-bottom: 2em; /* Space below the video section */
+        }
+
+        /* Video Container */
+        .video-container {
+            cursor: pointer;
+            width: 48%; /* Make each video take up roughly half the width */
+            background-color: transparent; /* Ensure no background color */
+            padding: 1em;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Landscape Video Styling */
+        .landscape-video {
+            width: 100%;
+            height: auto; /* Preserve the aspect ratio */
+            max-height: 500px; /* Limit the height for landscape */
+            border-radius: 10px;
+            display: block;
+        }
+
+        /* Ensure Video remains visible on hover */
+        .video-container:hover {
+            transform: scale(1.05); /* Slight zoom on hover */
+            background-color: #cccccc;
+        }
         .popup {
             position: fixed;
             top: 0;
@@ -210,8 +244,8 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.8);
             display: flex;
-            justify-content: center;
-            align-items: center;
+            justify-content: center;  /* Horizontally center the content */
+            align-items: center;      /* Vertically center the content */
             z-index: 1000;
             display: none;  /* Initially hidden */
         }
@@ -220,6 +254,16 @@
             max-width: 90%;
             max-height: 90%;
             border-radius: 10px;
+        }
+
+        /* Popup Image */
+        #popup-img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            object-fit: contain;  /* Ensures the image fits well in the container */
+            display: block;  /* Makes the image a block-level element */
+            margin: 2rem auto;  /* Centers the image horizontally */
         }
 
         .popup .close-btn {
@@ -262,6 +306,31 @@
             background-color: #489f60;
         }
 
+                /* Navigation buttons for the gallery page popup */
+        .prev-btn, .next-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .prev-btn {
+            left: 10px;
+        }
+
+        .next-btn {
+            right: 10px;
+        }
+
+        .prev-btn:hover, .next-btn:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
 
         .location {
             padding: 5em 0; /* Add spacing on top and bottom */
@@ -304,6 +373,21 @@
 
         .location-container {
             position: relative;
+        }
+
+        .pages-title {
+            font-size: 3em;
+            color: #f0a500; /* Bold golden color */
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: bold;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for emphasis */
+            margin: 2em auto;
+            text-align: center;
+            padding: 1em;
+            background-color: rgba(0, 0, 0, 0.6); /* Dark background to make text pop */
+            border-radius: 10px;
+            max-width: 80%;
         }
 
         footer {

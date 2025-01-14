@@ -79,6 +79,57 @@
         popupImg.dataset.zoomLevel = zoomLevel;
     });
 
+    //gallery page image popup
+    const galleryPageImages = document.querySelectorAll('.gallery-grid img');
+    const popup = document.getElementById('popup');
+    const popupImg = document.getElementById('popup-img');
+    const zoomInBtn = document.getElementById('zoom-in');
+    const zoomOutBtn = document.getElementById('zoom-out');
+    const imageSources = Array.from(galleryPageImages).map(img => img.src);
+    let currentIndex = 0;
+    let currentZoom = 1;
+
+    galleryPageImages.forEach((img, index) => {
+        img.addEventListener('click', () => {
+            currentIndex = index;
+            popupImg.src = img.src;
+            popup.style.display = 'block';
+        });
+    });
+
+    function closePopup() {
+        popup.style.display = 'none';
+        popupImg.style.transform = 'scale(1)';
+        currentZoom = 1;
+    }
+
+    zoomInBtn.addEventListener('click', () => {
+        currentZoom += 0.1;
+        popupImg.style.transform = `scale(${currentZoom})`;
+    });
+
+    zoomOutBtn.addEventListener('click', () => {
+        currentZoom = Math.max(1, currentZoom - 0.1);
+        popupImg.style.transform = `scale(${currentZoom})`;
+    });
+
+    function prevImage() {
+        currentIndex = (currentIndex - 1 + imageSources.length) % imageSources.length;
+        popupImg.src = imageSources[currentIndex];
+        resetZoom();
+    }
+
+    function nextImage() {
+        currentIndex = (currentIndex + 1) % imageSources.length;
+        popupImg.src = imageSources[currentIndex];
+        resetZoom();
+    }
+
+    function resetZoom() {
+        currentZoom = 1;
+        popupImg.style.transform = 'scale(1)';
+    }
+
     // "Get Directions" button functionality
     const directionsButton = document.querySelector('.location button');
     directionsButton.addEventListener('click', () => {
